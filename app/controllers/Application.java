@@ -7,6 +7,9 @@ import play.mvc.*;
 
 import models.*;
 import play.data.validation.Required;
+import play.libs.Images;
+import play.cache.*;
+import play.libs.Codec;
 
 public class Application extends Controller {
 
@@ -25,9 +28,10 @@ public class Application extends Controller {
     }
 
     public static void show(Long id) {
-        Post post = Post.findById(id);
-        render(post);
-    }
+    Post post = Post.findById(id);
+    String randomID = Codec.UUID();
+    render(post, randomID);
+}
    public static void postComment(Long postId, @Required String author, @Required String content) {
     Post post = Post.findById(postId);
     if(validation.hasErrors()) {
@@ -37,4 +41,11 @@ public class Application extends Controller {
     flash.success("Thanks for posting %s", author);
     show(postId);
 }
+   public static void captcha(String id) {
+    Images.Captcha captcha = Images.captcha();
+    String code = captcha.getText("#E4EAFD");
+    Cache.set(id, code, "10mn");
+    renderBinary(captcha);
+}
+   
 }
