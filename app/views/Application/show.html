@@ -6,6 +6,7 @@
 #{/if}
 
 #{display post:post, as:'full' /}
+
 <ul id="pagination">
     #{if post.previous()}
     <li id="previous">
@@ -30,18 +31,21 @@
 #{form @Application.postComment(post.id)}
 
 #{ifErrors}
-    <p class="error">
-        ${errors[0]}
-    </p>
+<p class="error">
+    ${errors[0]}
+</p>
 #{/ifErrors}
 
 <p>
-    <label for="author">Your name: </label>
-    <input type="text" name="author" id="author" value="${params.author}" />
-</p>
-<p>
     <label for="content">Your message: </label>
     <textarea name="content" id="content">${params.content}</textarea>
+</p>
+<p>
+    <label for="code">Please type the code below: </label>
+    <img src="@{Application.captcha(randomID)}" />
+    <br />
+    <input type="text" name="code" id="code" size="18" value="" />
+    <input type="hidden" name="randomID" value="${randomID}" />
 </p>
 <p>
     <input type="submit" value="Submit your comment" />
@@ -62,18 +66,3 @@
         }
     });
 </script>
-
-<p>
-    <label for="content">Your message: </label>
-    <textarea name="content" id="content">${params.content}</textarea>
-</p>
-<p>
-    <label for="code">Please type the code below: </label>
-    <img src="@{Application.captcha(randomID)}" />
-    <br />
-    <input type="text" name="code" id="code" size="18" value="" />
-    <input type="hidden" name="randomID" value="${randomID}" />
-</p>
-<p>
-    <input type="submit" value="Submit your comment" />
-</p>

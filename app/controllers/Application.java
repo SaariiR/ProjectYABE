@@ -1,4 +1,3 @@
-
 package controllers;
 
 import java.util.*;
@@ -10,6 +9,7 @@ import models.*;
 import play.data.validation.Required;
 import play.cache.*;
 import play.libs.Codec;
+import play.libs.Images;
 
 public class Application extends Controller {
 
@@ -52,13 +52,11 @@ public class Application extends Controller {
         show(postId);
     }
 
-   
-}
-public static void captcha(String id) {
-    Images.Captcha captcha = Images.captcha();
-    String code = captcha.getText("#E4EAFD");
-    Cache.set(id, code, "10mn");
-    renderBinary(captcha);
-}
-   
+    public static void captcha(String id) {
+        Images.Captcha captcha = Images.captcha();
+        String code = captcha.getText("#E4EAFD");
+        Cache.set(id, code, "10mn");
+        renderBinary(captcha);
+    }
+    
 }
