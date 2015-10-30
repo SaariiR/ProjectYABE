@@ -1,3 +1,4 @@
+
 package controllers;
 
 import java.util.*;
@@ -7,7 +8,6 @@ import play.mvc.*;
 
 import models.*;
 import play.data.validation.Required;
-import play.libs.Images;
 import play.cache.*;
 import play.libs.Codec;
 
@@ -52,7 +52,7 @@ public class Application extends Controller {
         show(postId);
     }
 
-    show(postId);
+   
 }
 public static void captcha(String id) {
     Images.Captcha captcha = Images.captcha();
