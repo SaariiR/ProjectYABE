@@ -1,0 +1,27 @@
+City(capitalfederal):
+    name: Capital Federal
+    state: Buenos Aires
+
+User(john):
+    name: "John Smith"
+    email: john@john.com
+    lang: es
+    created: 2007-01-01
+
+User(frank):
+    name: "Frank Franken"
+    email: frank@frank.com
+    lang: en
+    created: 2007-08-05
+
+Neighborhood(villalugano):
+    name: Villa Lugano
+    city: capitalfederal
+    tags: "shopping, cafes"
+    users: [john, frank]
+
+Neighborhood(coghlan):
+    name: Coghlan
+    city: capitalfederal
+    tags: "cafes, bars"
+    users: [john]
