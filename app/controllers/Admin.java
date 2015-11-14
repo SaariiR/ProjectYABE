@@ -1,5 +1,10 @@
 package controllers;
  
+/**
+ *
+ * @author Sara Rodriguez Soto
+ */
+
 import play.*;
 import play.mvc.*;
 import play.data.validation.*;
@@ -60,5 +65,3 @@ public class Admin extends Controller {
         post.save();
         index();
     }
-    
-}

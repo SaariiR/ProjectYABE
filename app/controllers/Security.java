@@ -1,11 +1,16 @@
 package controllers;
 
+/**
+ *
+ * @author Sara Rodriguez Soto
+ */
+
 import models.*;
 
 public class Security extends Secure.Security {
 
-    static boolean authentify(String email, String password) {
-        return User.connect(email, password) != null;
+    static boolean authentify(String username, String password) {
+        return User.connect(username, password) != null;
     }
     
     static boolean check(String profile) {

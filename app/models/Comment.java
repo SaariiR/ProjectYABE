@@ -1,5 +1,10 @@
 package models;
- 
+
+ /**
+ *
+ * @author Sara Rodriguez Soto
+ */
+
 import java.util.*;
 import javax.persistence.*;
  

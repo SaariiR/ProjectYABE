@@ -1,10 +1,15 @@
 package models;
- 
-import java.util.*;
-import javax.persistence.*;
- 
-import play.db.jpa.*;
-import play.data.validation.*;
+
+ /**
+ *
+ * @author Sara Rodriguez Soto
+ */
+
+import play.data.validation.Email;
+import play.data.validation.Required;
+import play.modules.morphia.Model;
+
+import com.google.code.morphia.annotations.Entity;
  
 @Entity
 public class User extends Model {
