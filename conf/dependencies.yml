@@ -2,5 +2,6 @@
 
 require:
     - play
-    - crud
-    - secure
+    - play -> crud
+    - play -> secure
+    - play -> morphia 1.2.12
